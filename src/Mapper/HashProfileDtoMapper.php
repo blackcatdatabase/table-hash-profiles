@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class HashProfileDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'algo_id' => 'algoId', 'output_len' => 'outputLen', 'created_at' => 'createdAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'name' => 'name', 'algo_id' => 'algoId', 'output_len' => 'outputLen', 'params' => 'params', 'status' => 'status', 'created_at' => 'createdAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
