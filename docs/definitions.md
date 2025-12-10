@@ -6,12 +6,12 @@ Reusable hashing profiles (algorithm + parameters).
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | algo_id | BIGINT | NO |  | Hash algorithm (FK crypto_algorithms.id). |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | name | VARCHAR(120) | NO |  | Profile identifier. |
 | output_len | SMALLINT | YES |  | Optional truncated output length in bytes. |
-| params | JSON | YES |  | JSON with algorithm-specific tweaks. |
-| status | ENUM('active','deprecated') | NO | active | Lifecycle flag. (enum: active, deprecated) |
+| params | mysql: JSON / postgres: JSONB | YES |  | JSON with algorithm-specific tweaks. |
+| status | mysql: ENUM('active','deprecated') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, deprecated) |
 
 ## Engine Details
 
