@@ -5,13 +5,13 @@ Reusable hashing profiles (algorithm + parameters).
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| algo_id | BIGINT | NO |  | Hash algorithm (FK crypto_algorithms.id). |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | name | VARCHAR(120) | NO |  | Profile identifier. |
+| algo_id | BIGINT | NO |  | Hash algorithm (FK crypto_algorithms.id). |
 | output_len | SMALLINT | YES |  | Optional truncated output length in bytes. |
-| params | JSON | YES |  | JSON with algorithm-specific tweaks. |
-| status | ENUM('active','deprecated') | NO | active | Lifecycle flag. (enum: active, deprecated) |
+| params | mysql: JSON / postgres: JSONB | YES |  | JSON with algorithm-specific tweaks. |
+| status | mysql: ENUM('active','deprecated') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, deprecated) |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 
 ## Engine Details
 
@@ -56,5 +56,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_hash_profiles | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
-| vw_hash_profiles | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
+| vw_hash_profiles | mysql | algorithm=MERGE, security=INVOKER | [../schema/040_views.mysql.sql](../schema/040_views.mysql.sql) |
+| vw_hash_profiles | postgres |  | [../schema/040_views.postgres.sql](../schema/040_views.postgres.sql) |
