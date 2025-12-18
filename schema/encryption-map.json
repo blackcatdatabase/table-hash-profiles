@@ -1,0 +1,29 @@
+{
+  "tables": {
+    "hash_profiles": {
+      "columns": {
+        "algo_id": {
+          "strategy": "passthrough"
+        },
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "name": {
+          "strategy": "passthrough"
+        },
+        "output_len": {
+          "strategy": "passthrough"
+        },
+        "params": {
+          "strategy": "passthrough"
+        },
+        "status": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}
